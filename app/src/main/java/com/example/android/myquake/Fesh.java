@@ -14,7 +14,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Samuel on 22/05/2017.
@@ -57,11 +56,12 @@ public class Fesh {
 
 
 
-        } catch (JSONException e) {
+        } catch (JSONException | NullPointerException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app doesn't crash. Print a log message
             // with the message from the exception.
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            return null;
         }
 
         // Return the list of earthquakes
